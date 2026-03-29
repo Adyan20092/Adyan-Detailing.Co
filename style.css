@@ -3,6 +3,10 @@
 
 /* Body */
 body {
+font-family:'Montserrat';
+color:white;
+scroll-behavior:smooth;
+}
   background: linear-gradient(135deg, #0a1f44, #00ffff);
   color: #fff;
   min-height: 100vh;
