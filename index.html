@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -222,12 +223,6 @@ cursor:pointer;
 font-weight:700;
 }
 
-.hours{
-text-align:center;
-margin-top:40px;
-line-height:2;
-}
-
 footer{
 text-align:center;
 padding:20px;
@@ -243,7 +238,6 @@ margin-top:40px;
 <nav>
 <a href="#services">Packages</a>
 <a href="#booking">Booking</a>
-<a href="#register">Register</a>
 </nav>
 
 <header>
@@ -337,32 +331,27 @@ margin-top:40px;
 
 <input type="number" id="age" name="Age" placeholder="Age" required oninput="calculateDiscount()">
 
-<input type="text" name="Car Brand" placeholder="Car Brand (BMW, Audi etc)" list="carbrands" required>
+<input type="text" name="Car Brand" placeholder="Car Brand" required>
 
-<datalist id="carbrands">
-<option value="Audi">
-<option value="BMW">
-<option value="Mercedes-Benz">
-<option value="Volkswagen">
-<option value="Toyota">
-<option value="Honda">
-<option value="Ford">
-<option value="Nissan">
-<option value="Hyundai">
-<option value="Kia">
-<option value="Peugeot">
-<option value="Renault">
-<option value="Skoda">
-<option value="SEAT">
-<option value="Tesla">
-<option value="Land Rover">
-<option value="Jaguar">
-<option value="Mini">
-<option value="Volvo">
-<option value="Mazda">
-</datalist>
+<input type="text" name="Car Model / Type" placeholder="Car Model" required>
 
-<input type="text" name="Car Model / Type" placeholder="Car Model / Type (e.g. A3, 320d)" required>
+<p style="text-align:center;">Optional Products</p>
+
+<label>
+<input type="checkbox" class="addon" data-price="2" onchange="calculateDiscount()"> Oud Fragrance (+£2)
+</label>
+
+<label>
+<input type="checkbox" class="addon" data-price="4" onchange="calculateDiscount()"> Interior Protection (+£4)
+</label>
+
+<label>
+<input type="checkbox" class="addon" data-price="5" onchange="calculateDiscount()"> Wax & Shine (+£5)
+</label>
+
+<p style="font-size:12px;color:#00eaff;">
+Included automatically with Full Valet
+</p>
 
 <select name="Car Type" required>
 <option value="">Car Type</option>
@@ -425,18 +414,44 @@ document.getElementById("services").scrollIntoView({behavior:"smooth"})
 }
 
 function choosePackage(name,price){
+
 document.getElementById("package").value=name
 basePrice=price
+
+let addons=document.querySelectorAll(".addon")
+
+if(name==="Full Valet"){
+addons.forEach(a=>{
+a.checked=false
+a.disabled=true
+})
+}else{
+addons.forEach(a=>{
+a.disabled=false
+})
+}
+
 calculateDiscount()
+
 document.getElementById("booking").scrollIntoView({behavior:"smooth"})
 }
 
 function calculateDiscount(){
+
 let age=document.getElementById("age").value
-let final=basePrice
-if(age>=17 && age<=22){final=basePrice*0.9}
-if(age>=60){final=basePrice*0.8}
-document.getElementById("price").value="£"+final
+let addonTotal=0
+
+document.querySelectorAll(".addon:checked").forEach(a=>{
+addonTotal+=Number(a.dataset.price)
+})
+
+let final=basePrice+addonTotal
+
+if(age>=17 && age<=22){final=final*0.9}
+if(age>=60){final=final*0.8}
+
+document.getElementById("price").value="£"+final.toFixed(2)
+
 }
 
 /* calendar */
@@ -488,9 +503,7 @@ let div=document.createElement("div")
 let dateStr=date.toISOString().split("T")[0]
 
 div.innerText=d
-
 div.title=dateStr
-
 div.classList.add("day")
 
 let dayOfWeek=date.getDay()
@@ -541,3 +554,4 @@ renderCalendar(currentMonth,currentYear)
 
 </body>
 </html>
+```
