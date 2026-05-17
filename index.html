@@ -317,76 +317,77 @@ margin-top:40px;
 
 <form action="https://api.web3forms.com/submit" method="POST">
 
-</form>
+  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
 
-<input type="hidden" name="_captcha" value="false">
+  <input type="text" id="package" name="Package" placeholder="Selected Package" readonly required>
 
-<input type="text" id="package" name="Package" placeholder="Selected Package" readonly required>
+  <input type="text" name="Name" placeholder="Name" required>
 
-<input type="text" name="Name" placeholder="Name" required>
+  <input type="email" name="Email" placeholder="Email" required>
 
-<input type="email" name="Email" placeholder="Email" required>
+  <input type="tel" name="Phone" placeholder="Phone Number" required>
 
-<input type="tel" name="Phone" placeholder="Phone Number" required>
+  <input type="number" id="age" name="Age" placeholder="Age" required oninput="calculateDiscount()">
 
-<input type="number" id="age" name="Age" placeholder="Age" required oninput="calculateDiscount()">
+  <input type="text" name="Car Brand" placeholder="Car Brand" required>
 
-<input type="text" name="Car Brand" placeholder="Car Brand" required>
+  <input type="text" name="Car Model / Type" placeholder="Car Model" required>
 
-<input type="text" name="Car Model / Type" placeholder="Car Model" required>
+  <p style="text-align:center;">Optional Products</p>
 
-<p style="text-align:center;">Optional Products</p>
+  <label>
+    <input type="checkbox" class="addon" data-price="2" onchange="calculateDiscount()">
+    Oud Fragrance (+£2)
+  </label>
 
-<label>
-<input type="checkbox" class="addon" data-price="2" onchange="calculateDiscount()"> Oud Fragrance (+£2)
-</label>
+  <label>
+    <input type="checkbox" class="addon" data-price="4" onchange="calculateDiscount()">
+    Interior Protection (+£4)
+  </label>
 
-<label>
-<input type="checkbox" class="addon" data-price="4" onchange="calculateDiscount()"> Interior Protection (+£4)
-</label>
+  <label>
+    <input type="checkbox" class="addon" data-price="5" onchange="calculateDiscount()">
+    Wax & Shine (+£5)
+  </label>
 
-<label>
-<input type="checkbox" class="addon" data-price="5" onchange="calculateDiscount()"> Wax & Shine (+£5)
-</label>
+  <p style="font-size:12px;color:#00eaff;">
+    Included automatically with Full Valet
+  </p>
 
-<p style="font-size:12px;color:#00eaff;">
-Included automatically with Full Valet
-</p>
+  <select name="Car Type" required>
+    <option value="">Car Type</option>
+    <option>Hatchback</option>
+    <option>Saloon</option>
+    <option>SUV</option>
+    <option>4x4</option>
+  </select>
 
-<select name="Car Type" required>
-<option value="">Car Type</option>
-<option>Hatchback</option>
-<option>Saloon</option>
-<option>SUV</option>
-<option>4x4</option>
-</select>
+  <p style="text-align:center;">Select Day</p>
 
-<p style="text-align:center;">Select Day</p>
+  <div id="calendar-container">
+    <button type="button" id="prevMonth">&lt;</button>
+    <div id="monthYear"></div>
+    <button type="button" id="nextMonth">&gt;</button>
+  </div>
 
-<div id="calendar-container">
-<button type="button" id="prevMonth">&lt;</button>
-<div id="monthYear"></div>
-<button type="button" id="nextMonth">&gt;</button>
-</div>
+  <div id="calendar"></div>
 
-<div id="calendar"></div>
+  <input type="hidden" id="selectedDay" name="Selected Day">
 
-<input type="hidden" id="selectedDay" name="Selected Day">
+  <select name="Time" required>
+    <option value="">Select Time</option>
+    <option>12:00</option>
+    <option>13:00</option>
+    <option>14:00</option>
+    <option>15:00</option>
+    <option>16:00</option>
+    <option>17:00</option>
+    <option>18:00</option>
+  </select>
 
-<select name="Time" required>
-<option value="">Select Time</option>
-<option>12:00</option>
-<option>13:00</option>
-<option>14:00</option>
-<option>15:00</option>
-<option>16:00</option>
-<option>17:00</option>
-<option>18:00</option>
-</select>
+  <input type="text" id="price" name="Final Price" placeholder="Final Price" readonly required>
 
-<input type="text" id="price" name="Final Price" placeholder="Final Price" readonly required>
-
-<input type="submit" value="Submit Booking" class="btn">
+  <input type="submit" value="Submit Booking" class="btn">
 
 </form>
 
