@@ -548,25 +548,29 @@ calendar.appendChild(div)
 
 window.addEventListener("DOMContentLoaded", function(){
 
-document.getElementById("prevMonth").onclick = function(){
+function safeRender(){
+  renderCalendar(currentMonth, currentYear)
+}
+
+document.getElementById("prevMonth").addEventListener("click", function(){
   currentMonth--
   if(currentMonth < 0){
     currentMonth = 11
     currentYear--
   }
-  renderCalendar(currentMonth, currentYear)
-}
+  safeRender()
+})
 
-document.getElementById("nextMonth").onclick = function(){
+document.getElementById("nextMonth").addEventListener("click", function(){
   currentMonth++
   if(currentMonth > 11){
     currentMonth = 0
     currentYear++
   }
-  renderCalendar(currentMonth, currentYear)
-}
+  safeRender()
+})
 
-renderCalendar(currentMonth, currentYear)
+safeRender()
 
 })
 
