@@ -331,7 +331,7 @@ margin-top:40px;
 
   <input type="text" name="Car Brand" placeholder="Car Brand" required>
 
-  <input type="text" name="Car Model / Type" placeholder="Car Model" required>
+ <input type="text" id="carModel" name="Car Model" placeholder="Car Model" required oninput="detectCarType()">
 
   <p style="text-align:center;">Optional Products</p>
 
@@ -354,13 +354,12 @@ margin-top:40px;
     Included automatically with Full Valet
   </p>
 
-  <select name="Car Type" required>
-    <option value="">Car Type</option>
-    <option>Hatchback</option>
-    <option>Saloon</option>
-    <option>SUV</option>
-    <option>4x4</option>
-  </select>
+<select id="carType" name="Car Type" required> <option value="">Car Type</option>
+  <option>Hatchback</option>
+  <option>Saloon</option>
+  <option>SUV</option>
+  <option>4x4</option>
+</select>
 
   <p style="text-align:center;">Select Day</p>
 
@@ -388,7 +387,7 @@ margin-top:40px;
   <input type="text" id="price" name="Final Price" placeholder="Final Price" readonly required>
   
 <p style="font-size:13px;color:#00eaff;text-align:center;">
-⚠️ An outdoor tap/water supply will be required for all bookings,unless you have selected interior only sorry for the inconvinece.
+⚠️ An outdoor tap/water supply will be required for all bookings, unless you have selected interior only sorry for the inconvinece.
 </p>
 
 <input type=value="Submit Booking" class="btn">
@@ -556,6 +555,42 @@ currentMonth++
 if(currentMonth>11){currentMonth=0;currentYear++}
 renderCalendar(currentMonth,currentYear)
 }
+```html id="jsplace"
+<script>
+
+function detectCarType(){
+
+let model = document.getElementById("carModel").value.toLowerCase()
+let type = document.getElementById("carType")
+
+if(
+model.includes("golf") ||
+model.includes("fiesta") ||
+model.includes("corsa") ||
+model.includes("a1")
+){
+type.value = "Hatchback"
+}
+
+else if(
+model.includes("3 series") ||
+model.includes("a4") ||
+model.includes("c class")
+){
+type.value = "Saloon"
+}
+
+else if(
+model.includes("x5") ||
+model.includes("q7") ||
+model.includes("range rover")
+){
+type.value = "SUV"
+}
+
+}
+
+```
 
 renderCalendar(currentMonth,currentYear)
 
