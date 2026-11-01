@@ -752,6 +752,18 @@ footer p {
 
         <p>Location: Cambridge and surrounding areas</p>
 
+<h3 style="color:#d4af62; margin-top:25px;">
+    OPENING HOURS
+</h3>
+
+<p>Monday: 17:00 – 21:00</p>
+<p>Tuesday: 17:00 – 21:00</p>
+<p>Wednesday: 14:00 – 21:00</p>
+<p>Thursday: 18:00 – 21:00</p>
+<p>Friday: Closed</p>
+<p>Saturday: 09:00 – 17:00</p>
+<p>Sunday: Closed</p>
+
     </div>
 
 </section>
@@ -811,16 +823,12 @@ footer p {
             <label>Preferred booking date</label>
             <input type="date" id="date" name="date" required>
 
-            <label>Preferred time</label>
-            <select name="time" required>
-                <option value="">Choose a time</option>
-                <option>12:00</option>
-                <option>13:00</option>
-                <option>14:00</option>
-                <option>15:00</option>
-                <option>16:00</option>
-                <option>17:00</option>
-            </select>
+
+<label>Preferred time</label>
+<select name="time" id="bookingTime" required>
+    <option value="">Select a date first</option>
+</select>
+
 
             <button type="submit" class="btn" id="submitButton">
                 SEND BOOKING REQUEST
@@ -868,6 +876,46 @@ const localToday = new Date(
 ).toISOString().split("T")[0];
 
 dateInput.min = localToday;
+
+const bookingTime = document.getElementById("bookingTime");
+
+const openingHours = {
+    1: [17, 21], // Monday
+    2: [17, 21], // Tuesday
+    3: [14, 21], // Wednesday
+    4: [18, 21], // Thursday
+    6: [9, 17]   // Saturday
+};
+
+function updateBookingTimes() {
+    bookingTime.innerHTML =
+        '<option value="">Choose a time</option>';
+
+    if (!dateInput.value) return;
+
+    const selectedDate = new Date(dateInput.value + "T12:00:00");
+    const day = selectedDate.getDay();
+
+    if (!openingHours[day]) {
+        bookingTime.innerHTML =
+            '<option value="">Closed on this day</option>';
+        return;
+    }
+
+    const [opening, closing] = openingHours[day];
+
+    for (let hour = opening; hour < closing; hour++) {
+        const time = String(hour).padStart(2, "0") + ":00";
+
+        const option = document.createElement("option");
+        option.value = time;
+        option.textContent = time;
+
+        bookingTime.appendChild(option);
+    }
+}
+
+dateInput.addEventListener("change", updateBookingTimes);
 
 // DISCOUNT CALCULATOR
 
@@ -929,6 +977,20 @@ document.getElementById("bookingForm").addEventListener("submit", async function
         alert("Please choose a future date.");
         return;
     }
+
+const selectedDay = new Date(
+    dateInput.value + "T12:00:00"
+).getDay();
+
+if (!openingHours[selectedDay]) {
+    alert("We are closed on Fridays and Sundays.");
+    return;
+}
+
+if (!bookingTime.value) {
+    alert("Please select an available booking time.");
+    return;
+}
 
     button.disabled = true;
     button.textContent = "SENDING...";
