@@ -4,19 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Adyan Detailing Co. | Driven by Detail</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
 :root {
     --gold: #d4af62;
     --gold-light: #f1d895;
@@ -25,51 +17,48 @@
     --grey: #aaaaaa;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--black);
-    color: white;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* NAVIGATION */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
 
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 22px 7%;
+    padding: 15px 7%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgba(5,5,5,0.94);
-    border-bottom: 1px solid rgba(212,175,98,0.2);
-    backdrop-filter: blur(15px);
+    justify-content: space-between;
+    background: rgba(5,5,5,0.96);
+    border-bottom: 1px solid #44371f;
 }
 
-.logo {
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: 2px;
-}
-    
 .logo img {
     width: 75px;
     height: 75px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #d4af62;
+    border: 2px solid var(--gold);
     display: block;
-}
-
-
-.logo span {
-    color: var(--gold);
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 22px;
     list-style: none;
 }
 
@@ -78,7 +67,6 @@ nav {
     text-decoration: none;
     font-size: 11px;
     font-weight: 600;
-    transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -87,21 +75,19 @@ nav {
 
 .menu-btn {
     display: none;
+    font-size: 28px;
     color: var(--gold);
-    font-size: 25px;
     cursor: pointer;
 }
 
-/* GENERAL SECTIONS */
-
 section {
     padding: 110px 9%;
-    scroll-margin-top: 75px;
+    scroll-margin-top: 90px;
 }
 
 .section-heading {
     text-align: center;
-    margin-bottom: 55px;
+    margin-bottom: 45px;
 }
 
 .section-heading h2 {
@@ -109,25 +95,49 @@ section {
     margin-bottom: 12px;
 }
 
-.section-heading span {
+.section-heading span,
+.gold {
     color: var(--gold);
 }
 
 .section-heading p {
     color: var(--grey);
     font-size: 13px;
+    line-height: 1.8;
 }
 
-/* HOME */
+.btn {
+    display: inline-block;
+    background: linear-gradient(120deg,#b38b40,#f0d58e);
+    color: #080808;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
 
 #home {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    padding-top: 155px;
     background:
-    radial-gradient(ellipse at 80% 40%, #30230e 0%, transparent 45%),
-    linear-gradient(120deg,#050505,#15120c,#050505);
-    padding-top: 150px;
+        radial-gradient(ellipse at 80% 40%,#30230e,transparent 45%),
+        linear-gradient(120deg,#050505,#15120c,#050505);
 }
 
 .hero-content {
@@ -136,7 +146,7 @@ section {
 
 .hero-small {
     color: var(--gold);
-    letter-spacing: 5px;
+    letter-spacing: 4px;
     font-size: 12px;
     font-weight: 700;
     margin-bottom: 25px;
@@ -145,7 +155,6 @@ section {
 .hero-content h1 {
     font-size: clamp(42px,7vw,80px);
     line-height: 1.12;
-    font-weight: 800;
 }
 
 .hero-content h1 span {
@@ -160,42 +169,22 @@ section {
     font-size: 14px;
 }
 
-.btn {
-    display: inline-block;
-    background: linear-gradient(120deg,#b38b40,#f0d58e);
-    color: #080808;
-    padding: 15px 27px;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    border-radius: 3px;
-    transition: 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 25px #b38b4050;
-}
-
 .hero-note {
-    margin-top: 65px;
+    margin-top: 60px;
     color: #777;
     font-size: 11px;
     letter-spacing: 2px;
 }
 
-/* SERVICES */
-
-#services {
-    background: #0d0d0d;
+#services,
+#reviews,
+#cards {
+    background: #101010;
 }
 
 .packages {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
     gap: 20px;
 }
 
@@ -203,13 +192,11 @@ section {
     background: linear-gradient(145deg,#171717,#0c0c0c);
     border: 1px solid #292929;
     padding: 35px 25px;
-    transition: 0.3s;
     border-radius: 5px;
 }
 
 .package:hover {
     border-color: var(--gold);
-    transform: translateY(-7px);
 }
 
 .package h3 {
@@ -221,12 +208,12 @@ section {
     font-size: 36px;
     font-weight: 800;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .package p {
-    font-size: 12px;
     color: #999;
+    font-size: 12px;
     line-height: 1.8;
     min-height: 65px;
 }
@@ -240,12 +227,6 @@ section {
     font-weight: 700;
 }
 
-/* GALLERY */
-
-#gallery {
-    background: #080808;
-}
-
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
@@ -257,32 +238,20 @@ section {
     border: 1px solid #292929;
     background: linear-gradient(145deg,#282016,#101010);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
-    position: relative;
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.5s;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.06);
 }
 
 .gallery-item p {
     color: var(--gold);
     font-size: 12px;
-}
-
-/* REVIEWS */
-
-#reviews {
-    background: #101010;
 }
 
 .review-box {
@@ -291,19 +260,12 @@ section {
     text-align: center;
     padding: 40px;
     border: 1px solid #333;
-    border-radius: 5px;
 }
 
 .review-box p {
     color: #aaa;
-    font-size: 14px;
     line-height: 1.9;
-}
-
-/* ABOUT */
-
-#about {
-    background: #090909;
+    font-size: 14px;
 }
 
 .about-content {
@@ -312,25 +274,10 @@ section {
     text-align: center;
 }
 
-.about-content h2 {
-    font-size: 35px;
-    margin-bottom: 25px;
-}
-
-.about-content h2 span {
-    color: var(--gold);
-}
-
 .about-content p {
     color: #aaa;
-    line-height: 2;
     font-size: 13px;
-}
-
-/* OUR CARDS */
-
-#cards {
-    background: #101010;
+    line-height: 2;
 }
 
 .card-gallery {
@@ -354,14 +301,8 @@ section {
 }
 
 .card-gallery p {
-    font-size: 12px;
     color: #aaa;
-}
-
-/* CONTACT */
-
-#contact {
-    background: #080808;
+    font-size: 12px;
 }
 
 .contact-content {
@@ -376,19 +317,25 @@ section {
     text-decoration: none;
 }
 
-/* BOOKING */
-
 #booking {
     background: linear-gradient(145deg,#17130c,#080808);
 }
 
 .booking-container {
-    max-width: 650px;
+    max-width: 750px;
     margin: auto;
-    padding: 35px;
+    padding: 30px;
     background: #111;
     border: 1px solid #554426;
-    border-radius: 6px;
+    border-radius: 8px;
+}
+
+.booking-container label {
+    display: block;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    margin: 17px 0 8px;
 }
 
 .booking-container input,
@@ -396,41 +343,190 @@ section {
 .booking-container textarea {
     width: 100%;
     padding: 14px;
-    margin-bottom: 17px;
     background: #080808;
-    border: 1px solid #333;
     color: white;
+    border: 1px solid #333;
+    border-radius: 4px;
     font-family: inherit;
-    font-size: 12px;
-    border-radius: 3px;
+    font-size: 13px;
 }
 
-.booking-container label {
-    display: block;
-    font-size: 11px;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-weight: 600;
+.booking-container input:focus,
+.booking-container select:focus,
+.booking-container textarea:focus {
+    outline: 1px solid var(--gold);
 }
 
-.booking-container button {
+.booking-container .btn {
     width: 100%;
+    margin-top: 25px;
 }
 
-.discount-info {
+.discount-info,
+.small-note {
     color: #aaa;
     font-size: 11px;
-    line-height: 1.9;
-    margin-bottom: 20px;
+    line-height: 1.8;
+    margin-top: 10px;
 }
 
 #discountMessage {
     color: var(--gold);
     font-size: 12px;
-    margin: 0 0 15px;
+    margin-top: 10px;
 }
 
-/* FOOTER */
+/* BOOKING CALENDAR */
+
+.calendar {
+    background: #080808;
+    border: 1px solid #393025;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    color: var(--gold);
+    font-size: 17px;
+    text-align: center;
+}
+
+.calendar-arrow {
+    background: #171717;
+    color: var(--gold);
+    border: 1px solid #554426;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.calendar-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7,minmax(0,1fr));
+    gap: 6px;
+}
+
+.weekday {
+    text-align: center;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 10px 0;
+}
+
+.calendar-day {
+    min-height: 48px;
+    background: #181818;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.calendar-day:hover:not(:disabled) {
+    border-color: var(--gold);
+}
+
+.calendar-day.selected {
+    background: var(--gold);
+    color: black;
+    font-weight: 800;
+}
+
+.calendar-day:disabled {
+    color: #555;
+    background: #101010;
+    cursor: not-allowed;
+}
+
+.calendar-empty {
+    min-height: 48px;
+}
+
+.calendar-legend {
+    margin-top: 15px;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.8;
+}
+
+#selectedDateText {
+    margin-top: 18px;
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+#timeSlots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(135px,1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.time-slot {
+    padding: 13px 8px;
+    background: #181818;
+    color: white;
+    border: 1px solid #554426;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.time-slot:hover:not(:disabled) {
+    border-color: var(--gold);
+}
+
+.time-slot.selected {
+    background: var(--gold);
+    color: black;
+    font-weight: 800;
+}
+
+.time-slot:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+#bookingStatus {
+    margin-top: 15px;
+    color: var(--gold-light);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.booking-summary {
+    background: #171717;
+    border: 1px solid #554426;
+    padding: 20px;
+    margin-top: 22px;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.booking-summary h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
 
 footer {
     padding: 35px 8%;
@@ -454,7 +550,7 @@ footer p {
 
 @media(max-width:900px) {
     .nav-links {
-        gap: 12px;
+        gap: 10px;
     }
 
     .nav-links a {
@@ -464,7 +560,12 @@ footer p {
 
 @media(max-width:650px) {
     nav {
-        padding: 20px 6%;
+        padding: 12px 6%;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
     }
 
     .menu-btn {
@@ -474,14 +575,13 @@ footer p {
     .nav-links {
         display: none;
         position: absolute;
-        top: 65px;
+        top: 84px;
         left: 0;
         width: 100%;
-        background: #090909;
         padding: 25px;
+        background: #090909;
         flex-direction: column;
         text-align: center;
-        border-bottom: 1px solid #554426;
     }
 
     .nav-links.active {
@@ -496,16 +596,25 @@ footer p {
         padding: 90px 7%;
     }
 
-    .hero-content h1 {
-        font-size: 45px;
-    }
-
     .section-heading h2 {
         font-size: 27px;
     }
 
     .booking-container {
-        padding: 22px;
+        padding: 18px;
+    }
+
+    .calendar {
+        padding: 10px;
+    }
+
+    .calendar-grid {
+        gap: 3px;
+    }
+
+    .calendar-day {
+        min-height: 40px;
+        font-size: 11px;
     }
 }
 </style>
@@ -516,11 +625,9 @@ footer p {
 <!-- NAVIGATION -->
 
 <nav>
-    
-<div class="logo">
-    <img src="newlogo.png" alt="Adyan Detailing Co. Logo">
-</div>
-
+    <div class="logo">
+        <img src="newlogo.png" alt="Adyan Detailing Co. Logo">
+    </div>
 
     <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
@@ -539,10 +646,10 @@ footer p {
 <!-- HOME -->
 
 <section id="home">
-
     <div class="hero-content">
-
-        <div class="hero-small">CAMBRIDGE • MOBILE DETAILING</div>
+        <div class="hero-small">
+            CAMBRIDGE • MOBILE DETAILING
+        </div>
 
         <h1>
             DRIVEN BY<br>
@@ -555,20 +662,19 @@ footer p {
             bookings and results that speak for themselves.
         </p>
 
-        <a href="#services" class="btn">EXPLORE OUR SERVICES</a>
+        <a href="#services" class="btn">
+            EXPLORE OUR SERVICES
+        </a>
 
         <div class="hero-note">
             ADYAN DETAILING CO. — ESTABLISHED FOR QUALITY.
         </div>
-
     </div>
-
 </section>
 
 <!-- SERVICES -->
 
 <section id="services">
-
     <div class="section-heading">
         <h2>OUR <span>SERVICES</span></h2>
         <p>Choose the detailing package that suits your vehicle.</p>
@@ -580,76 +686,77 @@ footer p {
             <h3>Interior Only</h3>
             <div class="price">£15</div>
             <p>Interior-focused cleaning to refresh your vehicle's cabin.</p>
-            <a href="#booking">BOOK THIS PACKAGE →</a>
+            <a href="#booking" onclick="choosePackage('Interior Only')">
+                BOOK THIS PACKAGE →
+            </a>
         </div>
 
         <div class="package">
             <h3>Exterior Only</h3>
             <div class="price">£20</div>
             <p>Exterior-focused cleaning to give your vehicle a fresh finish.</p>
-            <a href="#booking">BOOK THIS PACKAGE →</a>
+            <a href="#booking" onclick="choosePackage('Exterior Only')">
+                BOOK THIS PACKAGE →
+            </a>
         </div>
 
         <div class="package">
             <h3>Interior + Exterior</h3>
             <div class="price">£30</div>
             <p>A complete interior and exterior cleaning package.</p>
-            <a href="#booking">BOOK THIS PACKAGE →</a>
+            <a href="#booking" onclick="choosePackage('Interior + Exterior')">
+                BOOK THIS PACKAGE →
+            </a>
         </div>
 
         <div class="package">
             <h3>Mini Valet</h3>
             <div class="price">£40</div>
             <p>An enhanced clean for customers wanting extra attention.</p>
-            <a href="#booking">BOOK THIS PACKAGE →</a>
+            <a href="#booking" onclick="choosePackage('Mini Valet')">
+                BOOK THIS PACKAGE →
+            </a>
         </div>
 
         <div class="package">
             <h3>Full Valet</h3>
             <div class="price">£50</div>
             <p>Our most comprehensive detailing package.</p>
-            <a href="#booking">BOOK THIS PACKAGE →</a>
+            <a href="#booking" onclick="choosePackage('Full Valet')">
+                BOOK THIS PACKAGE →
+            </a>
         </div>
 
     </div>
-
 </section>
 
 <!-- GALLERY -->
 
 <section id="gallery">
-
     <div class="section-heading">
         <h2>OUR <span>GALLERY</span></h2>
         <p>Showcasing our work and attention to detail.</p>
     </div>
 
     <div class="gallery">
-
         <div class="gallery-item">
             <p>Add your detailing photo 1</p>
         </div>
-
         <div class="gallery-item">
             <p>Add your detailing photo 2</p>
         </div>
-
         <div class="gallery-item">
             <p>Add your detailing photo 3</p>
         </div>
-
         <div class="gallery-item">
             <p>Add your detailing photo 4</p>
         </div>
-
     </div>
-
 </section>
 
 <!-- REVIEWS -->
 
 <section id="reviews">
-
     <div class="section-heading">
         <h2>CUSTOMER <span>REVIEWS</span></h2>
         <p>Customer satisfaction matters to us.</p>
@@ -663,54 +770,55 @@ footer p {
         <br>
         <a href="#contact" class="btn">LEAVE FEEDBACK</a>
     </div>
-
 </section>
 
 <!-- ABOUT -->
 
 <section id="about">
-
     <div class="about-content">
-
         <div class="section-heading">
             <h2>ABOUT <span>US</span></h2>
         </div>
 
         <p>
             Driven by Detail. Focused on Quality.
-
-            At Adyan Detailing Co., we are passionate about keeping vehicles looking their best.
-            We provide affordable, convenient mobile car detailing services, bringing professional care and attention to every vehicle.
             <br><br>
 
-            Our aim is simple: to deliver quality results, reliable service and customer satisfaction with every detail.
+            At Adyan Detailing Co., we are passionate about
+            keeping vehicles looking their best.
 
+            We provide affordable, convenient mobile car
+            detailing services, bringing professional care
+            and attention to every vehicle.
             <br><br>
 
-            Whether your vehicle needs a quick refresh or a complete valet, we take pride in every job, treating each car with the care and attention it deserves.
-
+            Our aim is simple: to deliver quality results,
+            reliable service and customer satisfaction
+            with every detail.
             <br><br>
 
-            <strong style="color:#d4af62;">
+            Whether your vehicle needs a quick refresh
+            or a complete valet, we take pride in every job,
+            treating each car with the care and attention
+            it deserves.
+            <br><br>
+
+            <strong class="gold">
                 Our promise is simple: Quality in every detail.
             </strong>
         </p>
-
     </div>
-
 </section>
 
 <!-- OUR CARDS -->
 
 <section id="cards">
-
     <div class="section-heading">
         <h2>OUR <span>CARDS</span></h2>
         <p>Stay connected and get rewarded for your loyalty.</p>
     </div>
 
     <div class="card-gallery">
-
         <div>
             <img src="right.png" alt="Adyan Detailing business card">
             <h3>BUSINESS CARD</h3>
@@ -722,29 +830,27 @@ footer p {
             <h3>LOYALTY CARD</h3>
             <p>Collect 8 stamps and receive 50% off!</p>
         </div>
-
     </div>
-
 </section>
 
 <!-- CONTACT -->
 
 <section id="contact">
-
     <div class="section-heading">
         <h2>GET IN <span>TOUCH</span></h2>
         <p>Have a question? Contact us.</p>
     </div>
 
     <div class="contact-content">
-
         <p>Business: Adyan Detailing Co.</p>
 
-        <p>Phone:
+        <p>
+            Phone:
             <a href="tel:+447942281474">07942 281474</a>
         </p>
 
-        <p>Email:
+        <p>
+            Email:
             <a href="mailto:adyan.detailing.co@gmail.com">
                 adyan.detailing.co@gmail.com
             </a>
@@ -752,66 +858,108 @@ footer p {
 
         <p>Location: Cambridge and surrounding areas</p>
 
-<h3 style="color:#d4af62; margin-top:25px;">
-    OPENING HOURS
-</h3>
+        <h3 style="color:#d4af62;margin-top:25px;">
+            OPENING HOURS
+        </h3>
 
-<p>Monday: 17:00 – 21:00</p>
-<p>Tuesday: 17:00 – 21:00</p>
-<p>Wednesday: 14:00 – 21:00</p>
-<p>Thursday: 18:00 – 21:00</p>
-<p>Friday: Closed</p>
-<p>Saturday: 09:00 – 17:00</p>
-<p>Sunday: Closed</p>
-
+        <p>Monday: 17:00 – 21:00</p>
+        <p>Tuesday: 17:00 – 21:00</p>
+        <p>Wednesday: 14:00 – 21:00</p>
+        <p>Thursday: 18:00 – 21:00</p>
+        <p>Friday: Closed</p>
+        <p>Saturday: 09:00 – 17:00</p>
+        <p>Sunday: Closed</p>
     </div>
-
 </section>
 
 <!-- BOOKING -->
 
 <section id="booking">
-
     <div class="section-heading">
         <h2>BOOK YOUR <span>DETAIL</span></h2>
-        <p>Request your preferred date and package.</p>
+        <p>
+            Select your package, choose an available
+            date and confirm your appointment.
+        </p>
     </div>
 
     <div class="booking-container">
 
         <form id="bookingForm">
 
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-
             <label>Your name</label>
-            <input type="text" name="name" placeholder="Full name" required>
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Full name"
+                maxlength="100"
+                required
+            >
 
             <label>Phone number</label>
-            <input type="tel" name="phone" placeholder="Your phone number" required>
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Your phone number"
+                maxlength="30"
+                required
+            >
 
             <label>Email address</label>
-            <input type="email" name="email" placeholder="Your email" required>
+            <input
+                type="email"
+                id="customerEmail"
+                placeholder="Your email"
+                maxlength="254"
+                required
+            >
 
             <label>Vehicle</label>
-            <input type="text" name="vehicle" placeholder="e.g. BMW 3 Series" required>
+            <input
+                type="text"
+                id="customerVehicle"
+                placeholder="e.g. BMW 3 Series"
+                maxlength="100"
+                required
+            >
 
             <label>Select package</label>
 
-            <select name="package" id="package" required>
+            <select id="package" required>
                 <option value="">Choose a package</option>
-                <option value="Interior Only">Interior Only - £15</option>
-                <option value="Exterior Only">Exterior Only - £20</option>
-                <option value="Interior + Exterior">Interior + Exterior - £30</option>
-                <option value="Mini Valet">Mini Valet - £40</option>
-                <option value="Full Valet">Full Valet - £50</option>
+                <option value="Interior Only">
+                    Interior Only - £15 (1 hour)
+                </option>
+                <option value="Exterior Only">
+                    Exterior Only - £20 (1 hour)
+                </option>
+                <option value="Interior + Exterior">
+                    Interior + Exterior - £30 (2 hours)
+                </option>
+                <option value="Mini Valet">
+                    Mini Valet - £40 (2 hours)
+                </option>
+                <option value="Full Valet">
+                    Full Valet - £50 (2 hours)
+                </option>
             </select>
 
             <label>Additional information</label>
-            <textarea name="message" rows="4" placeholder="Tell us anything else we should know"></textarea>
+            <textarea
+                id="customerMessage"
+                rows="3"
+                maxlength="1000"
+                placeholder="Tell us anything else we should know"
+            ></textarea>
 
             <label>Your age (for eligible discounts)</label>
-
-            <input type="number" id="age" name="age" min="1" max="110" placeholder="Enter your age">
+            <input
+                type="number"
+                id="age"
+                min="1"
+                max="110"
+                placeholder="Enter your age"
+            >
 
             <div class="discount-info">
                 Ages 17–22: 10% discount.<br>
@@ -820,206 +968,747 @@ footer p {
 
             <p id="discountMessage"></p>
 
-            <label>Preferred booking date</label>
-            <input type="date" id="date" name="date" required>
+            <label>Choose your booking date</label>
 
+            <div class="calendar">
 
-<label>Preferred time</label>
-<select name="time" id="bookingTime" required>
-    <option value="">Select a date first</option>
-</select>
+                <div class="calendar-header">
+                    <button
+                        type="button"
+                        class="calendar-arrow"
+                        id="previousMonth"
+                    >❮</button>
 
+                    <h3 id="calendarMonth"></h3>
 
-            <button type="submit" class="btn" id="submitButton">
-                SEND BOOKING REQUEST
+                    <button
+                        type="button"
+                        class="calendar-arrow"
+                        id="nextMonth"
+                    >❯</button>
+                </div>
+
+                <div class="calendar-grid" id="calendarGrid"></div>
+
+                <div class="calendar-legend">
+                    Select an available day.
+                    Bookings can be made up to 3 months ahead.
+                    Fridays and Sundays are closed.
+                </div>
+            </div>
+
+            <p id="selectedDateText">
+                Select a package and date.
+            </p>
+
+            <label>Available time slots</label>
+            <div id="timeSlots"></div>
+
+            <p id="bookingStatus" role="status" aria-live="polite"></p>
+
+            <div class="booking-summary">
+                <h3>BOOKING SUMMARY</h3>
+                <p id="summaryPackage">Package: Not selected</p>
+                <p id="summaryDate">Date: Not selected</p>
+                <p id="summaryTime">Time: Not selected</p>
+                <p id="summaryPrice">Price: £0.00</p>
+            </div>
+
+            <button
+                type="submit"
+                class="btn"
+                id="submitButton"
+                disabled
+            >
+                CONFIRM BOOKING
             </button>
+
+            <p class="small-note">
+                Your appointment is confirmed only when
+                our booking system successfully saves it.
+            </p>
 
         </form>
 
     </div>
-
 </section>
 
 <!-- FOOTER -->
 
 <footer>
-
     <h3>ADYAN DETAILING CO.</h3>
-
     <p>DRIVEN BY DETAIL.</p>
-
     <p>Cambridge, United Kingdom</p>
-
     <p>© 2026 Adyan Detailing Co. All rights reserved.</p>
-
 </footer>
+
+<!-- SUPABASE LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
 <script>
 
-// MOBILE MENU
+/*
+========================================
+SUPABASE CONNECTION
+========================================
+
+Replace these values with your own.
+
+Use a PUBLISHABLE key or legacy ANON key.
+NEVER put a service_role or secret key here.
+
+The database functions must be configured
+before real bookings can be made.
+*/
+
+const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+
+const connected =
+    SUPABASE_URL.startsWith("https://") &&
+    !SUPABASE_URL.includes("YOUR_") &&
+    !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_");
+
+const db = connected
+    ? window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    )
+    : null;
+
+/*
+========================================
+BUSINESS SETTINGS
+========================================
+*/
+
+const packages = {
+    "Interior Only": {
+        price: 15,
+        duration: 1
+    },
+    "Exterior Only": {
+        price: 20,
+        duration: 1
+    },
+    "Interior + Exterior": {
+        price: 30,
+        duration: 2
+    },
+    "Mini Valet": {
+        price: 40,
+        duration: 2
+    },
+    "Full Valet": {
+        price: 50,
+        duration: 2
+    }
+};
+
+const openingHours = {
+    1: [17, 21],
+    2: [17, 21],
+    3: [14, 21],
+    4: [18, 21],
+    6: [9, 17]
+};
+
+/*
+========================================
+ELEMENTS AND STATE
+========================================
+*/
+
+const packageInput = document.getElementById("package");
+const ageInput = document.getElementById("age");
+const calendarGrid = document.getElementById("calendarGrid");
+const calendarMonth = document.getElementById("calendarMonth");
+const timeSlots = document.getElementById("timeSlots");
+const statusElement = document.getElementById("bookingStatus");
+const submitButton = document.getElementById("submitButton");
+
+const pad = number => String(number).padStart(2, "0");
+
+function dateString(date) {
+    return (
+        date.getFullYear() + "-" +
+        pad(date.getMonth() + 1) + "-" +
+        pad(date.getDate())
+    );
+}
+
+function parseDate(value) {
+    return new Date(value + "T12:00:00");
+}
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const maxDate = new Date(today);
+maxDate.setMonth(maxDate.getMonth() + 3);
+
+let displayedMonth = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    1
+);
+
+let selectedDate = "";
+let selectedTime = null;
+let bookedIntervals = [];
+let availabilityLoaded = false;
+let loadingAvailability = false;
+let availabilityRequest = 0;
+
+/*
+========================================
+MOBILE MENU
+========================================
+*/
 
 function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
+    document.getElementById("navLinks")
+        .classList.toggle("active");
 }
 
 function closeMenu() {
-    document.getElementById("navLinks").classList.remove("active");
+    document.getElementById("navLinks")
+        .classList.remove("active");
 }
 
-// BOOKING DATE
+/*
+========================================
+PACKAGE AND DISCOUNTS
+========================================
+*/
 
-const dateInput = document.getElementById("date");
-
-const today = new Date();
-const localToday = new Date(
-    today.getTime() - today.getTimezoneOffset() * 60000
-).toISOString().split("T")[0];
-
-dateInput.min = localToday;
-
-const bookingTime = document.getElementById("bookingTime");
-
-const openingHours = {
-    1: [17, 21], // Monday
-    2: [17, 21], // Tuesday
-    3: [14, 21], // Wednesday
-    4: [18, 21], // Thursday
-    6: [9, 17]   // Saturday
-};
-
-function updateBookingTimes() {
-    bookingTime.innerHTML =
-        '<option value="">Choose a time</option>';
-
-    if (!dateInput.value) return;
-
-    const selectedDate = new Date(dateInput.value + "T12:00:00");
-    const day = selectedDate.getDay();
-
-    if (!openingHours[day]) {
-        bookingTime.innerHTML =
-            '<option value="">Closed on this day</option>';
-        return;
-    }
-
-    const [opening, closing] = openingHours[day];
-
-    for (let hour = opening; hour < closing; hour++) {
-        const time = String(hour).padStart(2, "0") + ":00";
-
-        const option = document.createElement("option");
-        option.value = time;
-        option.textContent = time;
-
-        bookingTime.appendChild(option);
-    }
+function choosePackage(name) {
+    packageInput.value = name;
+    packageInput.dispatchEvent(new Event("change"));
 }
 
-dateInput.addEventListener("change", updateBookingTimes);
+function getPrice() {
+    const chosen = packages[packageInput.value];
 
-// DISCOUNT CALCULATOR
+    if (!chosen) return 0;
 
-const ageInput = document.getElementById("age");
-const packageInput = document.getElementById("package");
-const discountMessage = document.getElementById("discountMessage");
-
-function calculateDiscount() {
-
+    let price = chosen.price;
     const age = Number(ageInput.value);
 
-    const prices = {
-        "Interior Only": 15,
-        "Exterior Only": 20,
-        "Interior + Exterior": 30,
-        "Mini Valet": 40,
-        "Full Valet": 50
-    };
-
-    const selectedPackage = packageInput.value;
-    const price = prices[selectedPackage];
-
-    if (!age || !price) {
-        discountMessage.textContent = "";
-        return;
-    }
-
-    let discount = 0;
-
     if (age >= 17 && age <= 22) {
-        discount = 10;
+        price *= 0.9;
     } else if (age >= 60) {
-        discount = 20;
+        price *= 0.8;
     }
 
-    if (discount > 0) {
-        const finalPrice = (price * (1 - discount / 100)).toFixed(2);
-
-        discountMessage.textContent =
-            `${discount}% discount applied! Your price: £${finalPrice}`;
-    } else {
-        discountMessage.textContent =
-            `Your package price: £${price.toFixed(2)}`;
-    }
+    return price;
 }
 
-ageInput.addEventListener("input", calculateDiscount);
-packageInput.addEventListener("change", calculateDiscount);
+function calculateDiscount() {
+    const chosen = packages[packageInput.value];
+    const message = document.getElementById("discountMessage");
 
-// BOOKING FORM SUBMISSION
-
-document.getElementById("bookingForm").addEventListener("submit", async function(e) {
-
-    e.preventDefault();
-
-    const button = document.getElementById("submitButton");
-
-    if (dateInput.value < localToday) {
-        alert("Please choose a future date.");
+    if (!chosen) {
+        message.textContent = "";
         return;
     }
 
-const selectedDay = new Date(
-    dateInput.value + "T12:00:00"
-).getDay();
+    const price = getPrice();
 
-if (!openingHours[selectedDay]) {
-    alert("We are closed on Fridays and Sundays.");
-    return;
+    message.textContent =
+        "Your estimated price: £" + price.toFixed(2);
 }
 
-if (!bookingTime.value) {
-    alert("Please select an available booking time.");
-    return;
-}
+ageInput.addEventListener("input", () => {
+    calculateDiscount();
+    updateSummary();
+});
 
-    button.disabled = true;
-    button.textContent = "SENDING...";
+packageInput.addEventListener("change", () => {
+    selectedTime = null;
+    calculateDiscount();
+    renderTimeSlots();
+    updateSummary();
+});
 
-    try {
+/*
+========================================
+CALENDAR
+========================================
+*/
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: new FormData(this)
+function renderCalendar() {
+    calendarGrid.innerHTML = "";
+
+    const year = displayedMonth.getFullYear();
+    const month = displayedMonth.getMonth();
+
+    calendarMonth.textContent =
+        displayedMonth.toLocaleDateString("en-GB", {
+            month: "long",
+            year: "numeric"
         });
 
-        const result = await response.json();
+    const firstDay = new Date(year, month, 1);
+    const numberOfDays = new Date(year, month + 1, 0)
+        .getDate();
 
-        if (result.success) {
-            alert("Your booking request has been sent! We will contact you to confirm.");
-            this.reset();
-            discountMessage.textContent = "";
-        } else {
-            alert("Something went wrong. Please try again.");
-        }
+    const offset = (firstDay.getDay() + 6) % 7;
 
-    } catch (error) {
-        alert("Unable to send your request. Please try again.");
+    const weekdayNames = [
+        "MON", "TUE", "WED", "THU",
+        "FRI", "SAT", "SUN"
+    ];
+
+    weekdayNames.forEach(name => {
+        const heading = document.createElement("div");
+        heading.className = "weekday";
+        heading.textContent = name;
+        calendarGrid.appendChild(heading);
+    });
+
+    for (let i = 0; i < offset; i++) {
+        const blank = document.createElement("div");
+        blank.className = "calendar-empty";
+        calendarGrid.appendChild(blank);
     }
 
-    button.disabled = false;
-    button.textContent = "SEND BOOKING REQUEST";
+    for (let day = 1; day <= numberOfDays; day++) {
+        const date = new Date(year, month, day);
+        const value = dateString(date);
 
-});
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "calendar-day";
+        button.textContent = day;
+
+        const closed = !openingHours[date.getDay()];
+
+        if (date < today || date > maxDate || closed) {
+            button.disabled = true;
+        }
+
+        if (value === selectedDate) {
+            button.classList.add("selected");
+        }
+
+        button.addEventListener("click", () => {
+            selectDate(value);
+        });
+
+        calendarGrid.appendChild(button);
+    }
+
+    const currentMonthStart = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        1
+    );
+
+    const maxMonthStart = new Date(
+        maxDate.getFullYear(),
+        maxDate.getMonth(),
+        1
+    );
+
+    document.getElementById("previousMonth").disabled =
+        displayedMonth <= currentMonthStart;
+
+    document.getElementById("nextMonth").disabled =
+        displayedMonth >= maxMonthStart;
+}
+
+document.getElementById("previousMonth")
+    .addEventListener("click", () => {
+        displayedMonth.setMonth(
+            displayedMonth.getMonth() - 1
+        );
+        renderCalendar();
+    });
+
+document.getElementById("nextMonth")
+    .addEventListener("click", () => {
+        displayedMonth.setMonth(
+            displayedMonth.getMonth() + 1
+        );
+        renderCalendar();
+    });
+
+/*
+========================================
+SELECT DATE
+========================================
+*/
+
+async function selectDate(value) {
+    const date = parseDate(value);
+
+    if (
+        date < today ||
+        date > maxDate ||
+        !openingHours[date.getDay()]
+    ) {
+        return;
+    }
+
+    selectedDate = value;
+    selectedTime = null;
+    availabilityLoaded = false;
+    bookedIntervals = [];
+
+    document.getElementById("selectedDateText").textContent =
+        date.toLocaleDateString("en-GB", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+    renderCalendar();
+    updateSummary();
+
+    await loadAvailability();
+}
+
+/*
+========================================
+LOAD EXISTING BOOKINGS
+========================================
+
+This calls a Supabase database function
+named get_booked_intervals.
+
+It must return rows containing:
+start_hour
+end_hour
+
+No customer personal information
+should be returned by this function.
+*/
+
+async function loadAvailability() {
+    const request = ++availabilityRequest;
+    const requestedDate = selectedDate;
+
+    loadingAvailability = true;
+    availabilityLoaded = false;
+
+    statusElement.textContent =
+        "Checking available appointments...";
+
+    renderTimeSlots();
+
+    if (!db) {
+        loadingAvailability = false;
+        statusElement.textContent =
+            "Booking database not connected yet.";
+        renderTimeSlots();
+        return;
+    }
+
+    try {
+        const { data, error } = await db.rpc(
+            "get_booked_intervals",
+            {
+                p_date: requestedDate
+            }
+        );
+
+        if (request !== availabilityRequest) return;
+
+        if (error) throw error;
+
+        bookedIntervals = (data || []).map(item => ({
+            start: Number(item.start_hour),
+            end: Number(item.end_hour)
+        }));
+
+        availabilityLoaded = true;
+
+        statusElement.textContent =
+            "Choose one of the available appointment times.";
+
+    } catch (error) {
+        if (request !== availabilityRequest) return;
+
+        console.error(error);
+
+        availabilityLoaded = false;
+
+        statusElement.textContent =
+            "Unable to check availability. Please try again.";
+    }
+
+    if (request !== availabilityRequest) return;
+
+    loadingAvailability = false;
+    renderTimeSlots();
+}
+
+/*
+========================================
+GENERATE AVAILABLE TIME SLOTS
+========================================
+*/
+
+function renderTimeSlots() {
+    timeSlots.innerHTML = "";
+
+    selectedTime = null;
+    updateSummary();
+
+    const chosen = packages[packageInput.value];
+
+    if (!selectedDate || !chosen) {
+        timeSlots.textContent =
+            "Select a package and date first.";
+        return;
+    }
+
+    if (loadingAvailability) {
+        timeSlots.textContent = "Loading time slots...";
+        return;
+    }
+
+    if (!availabilityLoaded) {
+        timeSlots.textContent =
+            "Availability is not available yet.";
+        return;
+    }
+
+    const day = parseDate(selectedDate).getDay();
+    const hours = openingHours[day];
+
+    if (!hours) {
+        timeSlots.textContent = "Closed on this day.";
+        return;
+    }
+
+    const [opening, closing] = hours;
+    const duration = chosen.duration;
+
+    let availableCount = 0;
+
+    for (
+        let start = opening;
+        start + duration <= closing;
+        start++
+    ) {
+        const end = start + duration;
+
+        const overlapping = bookedIntervals.some(booking =>
+            start < booking.end &&
+            end > booking.start
+        );
+
+        const slot = document.createElement("button");
+        slot.type = "button";
+        slot.className = "time-slot";
+
+        slot.textContent =
+            pad(start) + ":00 – " + pad(end) + ":00";
+
+        if (overlapping) {
+            slot.disabled = true;
+            slot.textContent = "BOOKED";
+        } else {
+            availableCount++;
+
+            slot.addEventListener("click", () => {
+                document.querySelectorAll(".time-slot")
+                    .forEach(button =>
+                        button.classList.remove("selected")
+                    );
+
+                slot.classList.add("selected");
+                selectedTime = start;
+                updateSummary();
+            });
+        }
+
+        timeSlots.appendChild(slot);
+    }
+
+    if (availableCount === 0) {
+        statusElement.textContent =
+            "No available appointments for this package on this date.";
+    }
+}
+
+/*
+========================================
+BOOKING SUMMARY
+========================================
+*/
+
+function updateSummary() {
+    const chosen = packages[packageInput.value];
+
+    document.getElementById("summaryPackage").textContent =
+        "Package: " +
+        (packageInput.value || "Not selected");
+
+    document.getElementById("summaryDate").textContent =
+        "Date: " + (selectedDate || "Not selected");
+
+    document.getElementById("summaryTime").textContent =
+        selectedTime === null || !chosen
+            ? "Time: Not selected"
+            : "Time: " +
+              pad(selectedTime) + ":00 – " +
+              pad(selectedTime + chosen.duration) + ":00";
+
+    document.getElementById("summaryPrice").textContent =
+        "Estimated price: £" + getPrice().toFixed(2);
+
+    submitButton.disabled =
+        !db ||
+        !chosen ||
+        !selectedDate ||
+        selectedTime === null ||
+        !availabilityLoaded;
+}
+
+/*
+========================================
+CONFIRM BOOKING
+========================================
+
+This calls the Supabase database function
+create_booking.
+
+The database must independently validate:
+- Opening hours
+- Package duration
+- Three-month booking limit
+- Overlapping appointments
+- Customer input
+- Rate limiting / abuse protection
+
+The browser is not trusted to enforce
+these rules on its own.
+*/
+
+document.getElementById("bookingForm")
+    .addEventListener("submit", async event => {
+
+        event.preventDefault();
+
+        if (
+            !db ||
+            !availabilityLoaded ||
+            selectedTime === null ||
+            !packages[packageInput.value]
+        ) {
+            alert("Please select an available appointment.");
+            return;
+        }
+
+        const chosenDate = selectedDate;
+        const chosenTime = selectedTime;
+        const chosenPackage = packageInput.value;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "CONFIRMING...";
+
+        try {
+            const { data, error } = await db.rpc(
+                "create_booking",
+                {
+                    p_name: document.getElementById(
+                        "customerName"
+                    ).value.trim(),
+
+                    p_phone: document.getElementById(
+                        "customerPhone"
+                    ).value.trim(),
+
+                    p_email: document.getElementById(
+                        "customerEmail"
+                    ).value.trim(),
+
+                    p_vehicle: document.getElementById(
+                        "customerVehicle"
+                    ).value.trim(),
+
+                    p_package: chosenPackage,
+
+                    p_date: chosenDate,
+
+                    p_start_hour: chosenTime,
+
+                    p_age: ageInput.value
+                        ? Number(ageInput.value)
+                        : null,
+
+                    p_message: document.getElementById(
+                        "customerMessage"
+                    ).value.trim()
+                }
+            );
+
+            if (error) throw error;
+
+            if (!data) {
+                throw new Error(
+                    "The database did not confirm the booking."
+                );
+            }
+
+            alert(
+                "Booking confirmed!\n\n" +
+                "Package: " + chosenPackage + "\n" +
+                "Date: " + chosenDate + "\n" +
+                "Time: " + pad(chosenTime) + ":00"
+            );
+
+            document.getElementById("bookingForm").reset();
+
+            selectedTime = null;
+            bookedIntervals = [];
+            availabilityLoaded = false;
+
+            calculateDiscount();
+            updateSummary();
+
+            if (selectedDate) {
+                await loadAvailability();
+            }
+
+        } catch (error) {
+            console.error(error);
+
+            alert(
+                "Your booking could not be confirmed. " +
+                "The slot may have been taken or the " +
+                "booking service may be unavailable. " +
+                "Please check availability and try again."
+            );
+
+            await loadAvailability();
+        }
+
+        submitButton.textContent = "CONFIRM BOOKING";
+        updateSummary();
+    });
+
+/*
+========================================
+START WEBSITE
+========================================
+*/
+
+renderCalendar();
+calculateDiscount();
+updateSummary();
+
+if (!connected) {
+    statusElement.textContent =
+        "Calendar preview only. Connect Supabase to enable bookings.";
+}
 
 </script>
 
